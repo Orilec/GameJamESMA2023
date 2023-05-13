@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody myRB;
+    private Rigidbody2D myRB;
 
-    public static PlayerController instance;
+
 
 
     void Start()
     {
-        myRB = GetComponent<Rigidbody>();
+        myRB = GetComponent<Rigidbody2D>();
+
+        FindObjectOfType<InputManager>().GetKeyWithKeyCode(KeyCode.Z).AttributeDown((PlayerController p) =>Move(p, 1));
     }
 
     void Update()
@@ -19,10 +21,18 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void Jump()
+    public void Jump(PlayerController p)
     {
-        myRB.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
+        Debug.Log("Test");
+        myRB.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
     }
+
+    public void Move(PlayerController p, int direction)
+    {
+
+        transform.position += 0.01f * Vector3.one;
+    }
+
 
     public void Attack()
     {
