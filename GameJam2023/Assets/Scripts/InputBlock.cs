@@ -53,6 +53,11 @@ public class InputBlock : DropSlot
                 myIM.GetKeyWithKeyCode(_keyCode).AttributeDown((PlayerController p) => player.Interact(p), true);
             }
 
+            if (actionBlock.action == "IsCollidable")
+            {
+                myIM.GetKeyWithKeyCode(_keyCode).AttributeDown((PlayerController p) => player.ToggleCollidables(p), true);
+            }
+
 
         }
     }
