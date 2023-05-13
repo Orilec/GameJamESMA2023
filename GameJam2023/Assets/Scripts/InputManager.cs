@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 
 public class InputManager : MonoBehaviour
@@ -17,9 +17,9 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         zKeyCommand = new JumpCommand();
-        qKeyCommand = new AttackCommand();
-        zKeyCommand = new MoveForwardCommand(1);
-        zKeyCommand = new MoveForwardCommand(1);
+        qKeyCommand = new MoveCommand(-1);
+        dKeyCommand = new MoveCommand(1);
+
     }
 
 
@@ -44,10 +44,12 @@ public class InputManager : MonoBehaviour
 
     }
 
-    private void SwapControls()
+    private void AffectCommand(ICommand macommande)
     {
-        eKeyCommand = new AttackCommand();
+        eKeyCommand = macommande;
         aKeyCommand = new JumpCommand();
+
+     
     }
 
 }
