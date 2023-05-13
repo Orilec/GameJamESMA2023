@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     {
         myRB = GetComponent<Rigidbody2D>();
 
-        FindObjectOfType<InputManager>().GetKeyWithKeyCode(KeyCode.Z).AttributeDown((PlayerController p) =>Move(p, 1));
+        
     }
 
     void Update()
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     public void Move(PlayerController p, int direction)
     {
 
-        transform.position += 0.01f * Vector3.one;
+        transform.position += 0.01f * Vector3.right;
     }
 
 
