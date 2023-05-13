@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
+    [SerializeField] private bool _isMoving;
     public float speed;
     public int startingPoint;
     public Transform[] points;
@@ -27,8 +28,10 @@ public class MovingPlatform : MonoBehaviour
                 i = 0; 
             }
         }
-
-        transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime); 
+        if (_isMoving)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -48,6 +51,11 @@ public class MovingPlatform : MonoBehaviour
         {
             collision.transform.SetParent(null);
         }
+    }
+
+    public void SetMoving()
+    {
+        _isMoving = !_isMoving;
     }
 
 

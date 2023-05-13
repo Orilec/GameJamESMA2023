@@ -4,34 +4,26 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        var playerController = collision.GetComponent<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.SetInRange(true, this); 
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         var playerController = collision.transform.GetComponent<PlayerController>();
         if (playerController != null)
         {
-            //playerController.SetInRange(true); 
+            playerController.SetInRange(false, this);
         }
-
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    public void Destroydoor()
     {
-        var playerController = collision.transform.GetComponent<PlayerController>();
-        if (playerController != null)
-        {
-            //playerController.SetInRange(false);
-        }
+        Destroy(transform.parent.gameObject);
     }
 }
