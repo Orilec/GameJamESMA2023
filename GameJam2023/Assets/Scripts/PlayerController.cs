@@ -5,8 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D myRB;
+    private bool _isInRange;
+    private Door _doorToDestroy;
+    private bool _canJump;
     [SerializeField] private float _speed;
     [SerializeField] private List<Collidables> _collidables;
+    [SerializeField] private List<MovingPlatform> _movingPlatforms;
 
 
     void Start()
@@ -33,8 +37,10 @@ public class PlayerController : MonoBehaviour
 
     public void Interact(PlayerController p)
     {
-
-        Debug.Log("Salut"); 
+        if(_isInRange && _doorToDestroy!= null)
+        {
+            _doorToDestroy.Destroydoor();
+        }
     }
 
     public void ToggleCollidables(PlayerController p)
@@ -45,9 +51,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-    public void Attack()
+    public void ToggleMovables(PlayerController p)
     {
-        Debug.Log("J'attaque !");
+        foreach (var movable in _movingPlatforms)
+        {
+            movable.SetMoving();
+        }
+    }
+
+
+    public void SetInRange(bool inRange, Door door)
+    {
+        _isInRange = inRange;
+        _doorToDestroy = door;
     }
 }
