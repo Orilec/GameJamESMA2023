@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputBlock : DropSlot
 {
     [SerializeField] private KeyCode _keyCode;
+    [SerializeField] private RectTransform _rectTransform;
     private InputManager myIM; 
     private PlayerController player;
     private ActionBlock actionBlockLinked; 
@@ -24,8 +25,9 @@ public class InputBlock : DropSlot
             actionBlockLinked.SetPosition(actionBlock.GetPreviousPosition()); 
         }
 
-        
-        actionBlockLinked = actionBlock; 
+        actionBlockLinked = actionBlock;
+        var actionBlockRectTransform = actionBlockLinked.GetComponent<RectTransform>();
+        actionBlockRectTransform.anchoredPosition = new Vector2(_rectTransform.anchoredPosition.x, _rectTransform.anchoredPosition.y);
 
         
         if(actionBlock != null)
