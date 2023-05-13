@@ -16,7 +16,7 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
-        zKeyCommand = new JumpCommand();
+
         qKeyCommand = new MoveCommand(-1);
         dKeyCommand = new MoveCommand(1);
 
@@ -28,12 +28,12 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            eKeyCommand.Execute(Player);
+
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            aKeyCommand.Execute(Player);
+
         }
 
         if (Input.GetKeyDown(KeyCode.Z))
@@ -46,8 +46,7 @@ public class InputManager : MonoBehaviour
 
     private void AffectCommand(ICommand macommande)
     {
-        eKeyCommand = macommande;
-        aKeyCommand = new JumpCommand();
+
 
      
     }
