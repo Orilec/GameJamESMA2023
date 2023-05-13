@@ -131,17 +131,17 @@ public class MyInput
     {
         if(Input.GetKeyDown(code))
         {
-            onDown.Invoke(player);
+            onDown?.Invoke(player);
 
         }
         if (Input.GetKeyUp(code))
         {
-            onUp.Invoke(player);
+            onUp?.Invoke(player);
 
         }
         if (Input.GetKey(code))
         {
-            onPressed.Invoke(player);
+            onPressed?.Invoke(player);
         }
     }
 }
