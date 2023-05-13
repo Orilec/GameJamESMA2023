@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D myRB;
     [SerializeField] private float _speed;
-    [SerializeField] private Collidables _collidables;
+    [SerializeField] private List<Collidables> _collidables;
 
 
     void Start()
@@ -39,7 +39,10 @@ public class PlayerController : MonoBehaviour
 
     public void ToggleCollidables(PlayerController p)
     {
-        
+        foreach (var collidable in _collidables)
+        {
+            collidable.ToggleCollidable();
+        }
     }
 
 
