@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpCommand : MonoBehaviour
+
+public class JumpCommand : ICommand
 {
-    // Start is called before the first frame update
-    void Start()
+
+
+    public JumpCommand()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Execute(PlayerController _player)
     {
-        
+
+
+
+
+
+    }
+
+    public void Undo(PlayerController _player)
+    {
+
     }
 }
