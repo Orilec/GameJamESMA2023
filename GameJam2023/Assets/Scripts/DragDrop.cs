@@ -9,11 +9,14 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBegin
     [SerializeField] private CanvasGroup _canvasGroup;
     [SerializeField] private RectTransform _rectTransform;
     [SerializeField] private Rigidbody2D _rigidBody;
+    private Vector3 _previousPosition; 
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         _canvasGroup.blocksRaycasts = false;
         _rigidBody.bodyType = RigidbodyType2D.Static;
+        _previousPosition = _rectTransform.position; 
+        
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -35,5 +38,15 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBegin
     public void OnPointerDown(PointerEventData eventData)
     {
 
+    }
+
+    public Vector3 GetPreviousPosition()
+    {
+        return _previousPosition; 
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+        _rectTransform.position = position; 
     }
 }

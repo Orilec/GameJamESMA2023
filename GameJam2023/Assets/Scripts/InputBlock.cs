@@ -6,7 +6,8 @@ public class InputBlock : DropSlot
 {
     [SerializeField] private KeyCode _keyCode;
     private InputManager myIM; 
-    private PlayerController player; 
+    private PlayerController player;
+    private ActionBlock actionBlockLinked; 
 
     private void Start()
     {
@@ -18,8 +19,17 @@ public class InputBlock : DropSlot
     public override void OnElementConnected(DragDrop element)
     {
         var actionBlock = element.GetComponent<ActionBlock>();
+        if (actionBlockLinked != null)
+        {
+            actionBlockLinked.SetPosition(actionBlock.GetPreviousPosition()); 
+        }
+
+        actionBlockLinked = actionBlock; 
+
+        
         if(actionBlock != null)
         {
+            Debug.Log("Action"); 
             if(actionBlock.action == "MoveLeft")
             {
                 myIM.GetKeyWithKeyCode(_keyCode).AttributePressed((PlayerController p) => player.Move(p, -1),true);
@@ -42,5 +52,14 @@ public class InputBlock : DropSlot
 
 
         }
+    }
+
+    public override void OnElementDeconnected(DragDrop element)
+    {
+        actionBlockLinked = null;
+        myIM.GetKeyWithKeyCode(_keyCode).ClearDown();
+        myIM.GetKeyWithKeyCode(_keyCode).ClearUp();
+        myIM.GetKeyWithKeyCode(_keyCode).ClearPressed();
+
     }
 }
