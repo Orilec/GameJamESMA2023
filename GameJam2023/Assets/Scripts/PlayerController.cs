@@ -5,15 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D myRB;
-    [SerializeField] private float _speed; 
-
+    [SerializeField] private float _speed;
+    [SerializeField] private Collidables _collidables;
 
 
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
-
-        
     }
 
     void Update()
@@ -37,6 +35,11 @@ public class PlayerController : MonoBehaviour
     {
 
         Debug.Log("Salut"); 
+    }
+
+    public void ToggleCollidables(PlayerController p)
+    {
+        
     }
 
 
