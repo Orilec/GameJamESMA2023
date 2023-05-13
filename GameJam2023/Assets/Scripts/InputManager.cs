@@ -94,6 +94,8 @@ public class MyInput
         if(shouldClear)
         {
             ClearUp();
+            ClearDown();
+            ClearPressed();
         }
         onUp += newAction;
     }
@@ -105,7 +107,9 @@ public class MyInput
     {
         if (shouldClear)
         {
+            ClearUp();
             ClearDown();
+            ClearPressed();
         }
         onDown += newAction;
     }
@@ -118,6 +122,8 @@ public class MyInput
         if (shouldClear)
         {
             ClearUp();
+            ClearDown();
+            ClearPressed();
         }
         onPressed += newAction;
     }

@@ -30,7 +30,13 @@ public class PlayerController : MonoBehaviour
     public void Move(PlayerController p, int direction)
     {
 
-        transform.position += 0.01f * Vector3.right;
+        transform.position += 0.01f * Vector3.right * direction;
+    }
+
+    public void Interact(PlayerController p)
+    {
+
+        Debug.Log("Salut"); 
     }
 
 
