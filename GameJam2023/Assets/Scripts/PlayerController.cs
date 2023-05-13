@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D myRB;
-
+    [SerializeField] private float _speed; 
 
 
 
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     public void Move(PlayerController p, int direction)
     {
 
-        transform.position += 0.01f * Vector3.right * direction;
+        transform.position += _speed * Vector3.right * direction * Time.deltaTime;
     }
 
     public void Interact(PlayerController p)

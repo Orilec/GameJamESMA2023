@@ -24,6 +24,7 @@ public class InputBlock : DropSlot
             actionBlockLinked.SetPosition(actionBlock.GetPreviousPosition()); 
         }
 
+        
         actionBlockLinked = actionBlock; 
 
         
@@ -56,10 +57,12 @@ public class InputBlock : DropSlot
 
     public override void OnElementDeconnected(DragDrop element)
     {
-        actionBlockLinked = null;
-        myIM.GetKeyWithKeyCode(_keyCode).ClearDown();
-        myIM.GetKeyWithKeyCode(_keyCode).ClearUp();
-        myIM.GetKeyWithKeyCode(_keyCode).ClearPressed();
-
+        if(actionBlockLinked == element)
+        {
+            actionBlockLinked = null;
+            myIM.GetKeyWithKeyCode(_keyCode).ClearDown();
+            myIM.GetKeyWithKeyCode(_keyCode).ClearUp();
+            myIM.GetKeyWithKeyCode(_keyCode).ClearPressed();
+        }
     }
 }
