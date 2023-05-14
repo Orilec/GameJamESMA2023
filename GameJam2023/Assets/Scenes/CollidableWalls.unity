@@ -2248,6 +2248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10
+  _distanceToCheck: 10
   _collidables:
   - {fileID: 700502256977712237}
   - {fileID: 820770727}

@@ -7,8 +7,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D myRB;
     private bool _isInRange;
     private Door _doorToDestroy;
-    private bool _canJump;
-    [SerializeField] private float _speed;
+    [SerializeField] private float _speed, _distanceToCheck;
     [SerializeField] private List<Collidables> _collidables;
     [SerializeField] private List<MovingPlatform> _movingPlatforms;
 
@@ -20,13 +19,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
+        Debug.Log(isGrounded());
     }
 
     public void Jump(PlayerController p)
     {
-        Debug.Log("Test");
-        myRB.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
+        if (isGrounded())
+        {
+            myRB.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
+        }
     }
 
     public void Move(PlayerController p, int direction)
@@ -64,5 +65,17 @@ public class PlayerController : MonoBehaviour
     {
         _isInRange = inRange;
         _doorToDestroy = door;
+    }
+
+    public bool isGrounded()
+    {
+        if (Physics2D.Raycast(transform.position, Vector2.down, _distanceToCheck))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
