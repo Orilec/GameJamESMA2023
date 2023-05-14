@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 3d6e7db47ca69794c9c33a7ad6b3d7b6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Fried Chicken
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 68b6571167ed11b4cb038ed6fd1d4ab5, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

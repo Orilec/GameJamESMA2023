@@ -36,11 +36,13 @@ public class InputBlock : DropSlot
             if(actionBlock.action == "MoveLeft")
             {
                 myIM.GetKeyWithKeyCode(_keyCode).AttributePressed((PlayerController p) => player.Move(p, -1),true);
+                myIM.GetKeyWithKeyCode(_keyCode).AttributeUp((PlayerController p) => player.ResetAcceleration(p),true);
             }
 
             if (actionBlock.action == "MoveRight")
             {
                 myIM.GetKeyWithKeyCode(_keyCode).AttributePressed((PlayerController p) => player.Move(p, 1), true);
+                myIM.GetKeyWithKeyCode(_keyCode).AttributeUp((PlayerController p) => player.ResetAcceleration(p), true);
             }
 
             if (actionBlock.action == "Jump")
