@@ -8,6 +8,8 @@ public class Play : MonoBehaviour
     public PlayerController PlayerController;
     public CursorLock CursorLock;
     public GameObject Filter;
+
+    public AudioManager audioM; 
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,8 @@ public class Play : MonoBehaviour
 
     public void PlayLevel()
     {
+        audioM.source.PlayOneShot(audioM.buttonSound); 
+
         InputManager.enabled = true;
         Filter.SetActive(false);
         PlayerController.DisableDrag();

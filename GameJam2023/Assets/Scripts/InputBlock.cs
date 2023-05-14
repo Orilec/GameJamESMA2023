@@ -6,6 +6,7 @@ public class InputBlock : DropSlot
 {
     [SerializeField] private KeyCode _keyCode;
     [SerializeField] private RectTransform _rectTransform;
+    [SerializeField] private AudioManager _audioM;
     private InputManager myIM; 
     private PlayerController player;
     private ActionBlock actionBlockLinked; 
@@ -19,6 +20,8 @@ public class InputBlock : DropSlot
 
     public override void OnElementConnected(DragDrop element)
     {
+        _audioM.source.PlayOneShot(_audioM.linkSound); 
+
         var actionBlock = element.GetComponent<ActionBlock>();
         if (actionBlockLinked != null)
         {
