@@ -94,8 +94,6 @@ public class MyInput
         if(shouldClear)
         {
             ClearUp();
-            ClearDown();
-            ClearPressed();
         }
         onUp += newAction;
     }
