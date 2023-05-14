@@ -50,4 +50,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DialogueScene6.unity
     guid: 491fd8416fef2154d913d7787c45f40e
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene7.unity
+    guid: a955deaeec43a9a43a3758266bbcbaf4
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene8.unity
+    guid: a99e072511b5d12419f001ac01fba3fc
+  - enabled: 1
+    path: Assets/Scenes/QuitScene.unity
+    guid: dd60a8f50d58b3c409d97e4ae759c507
   m_configObjects: {}
