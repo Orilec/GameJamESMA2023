@@ -11,6 +11,7 @@ public class EndOfLevel : MonoBehaviour
         var playerController = collision.GetComponent<PlayerController>();
         if(playerController != null)
         {
+            Debug.Log("collision");
             _sceneChanger.LoadAScene(_sceneToLoad);
         }
     }
