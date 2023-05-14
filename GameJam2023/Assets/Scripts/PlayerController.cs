@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D myRB;
+    public Animator animator; 
     private bool _isInRange;
     private Door _doorToDestroy;
     [SerializeField] private float _speed, _distanceToCheck, _jumpForce;
@@ -18,19 +19,27 @@ public class PlayerController : MonoBehaviour
         myRB = GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        animator.SetFloat("Speed", Mathf.Abs(transform.GetComponent<Rigidbody2D>().velocity.x));
+    }
+
 
     public void Jump(PlayerController p)
     {
         if (isGrounded())
         {
             myRB.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
+            animator.SetBool("IsJumping", true); 
         }
     }
 
     public void Move(PlayerController p, int direction)
     {
+        transform.GetComponent<Rigidbody2D>().velocity = _speed * Vector2.right * direction * Time.deltaTime;
+        transform.GetComponent<SpriteRenderer>().flipX = direction != 1; 
 
-        transform.position += _speed * Vector3.right * direction * Time.deltaTime;
+        //transform.position += _speed * Vector3.right * direction * Time.deltaTime;
     }
 
     public void Interact(PlayerController p)
