@@ -165,7 +165,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1750274558}
-  m_RootOrder: 2
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -674,14 +674,13 @@ GameObject:
   - component: {fileID: 424903568}
   - component: {fileID: 424903570}
   - component: {fileID: 424903569}
-  - component: {fileID: 424903571}
   m_Layer: 5
   m_Name: Debugtext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &424903568
 RectTransform:
   m_ObjectHideFlags: 0
@@ -799,21 +798,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424903567}
   m_CullTransparentMesh: 1
---- !u!114 &424903571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424903567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e8ba126b5d1bf0468d2f8f93b787f06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textComponent: {fileID: 424903569}
-  lines: []
-  textSpeed: 0
 --- !u!1001 &462887603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3838,13 +3822,13 @@ RectTransform:
   m_Children:
   - {fileID: 167778600}
   - {fileID: 756577167}
-  - {fileID: 111815919}
   - {fileID: 982426921}
   - {fileID: 605107611}
   - {fileID: 1065876176}
   - {fileID: 1086462012}
   - {fileID: 576396471}
   - {fileID: 1304817214}
+  - {fileID: 111815919}
   - {fileID: 2094344372}
   - {fileID: 252409909}
   - {fileID: 424903568}
