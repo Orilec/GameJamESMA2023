@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8255681069593359257}
-  _speed: 500
+  _speed: 10
   _distanceToCheck: 2
   _jumpForce: 6
   _collidables: []
@@ -111,6 +111,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _audioM: {fileID: 0}
 --- !u!61 &5216340568979371335
 BoxCollider2D:
   m_ObjectHideFlags: 0

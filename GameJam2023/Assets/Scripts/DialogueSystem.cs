@@ -7,7 +7,9 @@ public class DialogueSystem : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
     public string[] lines;
+    public string nextScene;
     public float textSpeed;
+    public SceneChanger sceneChanger;
 
     private int index; 
     // Start is called before the first frame update
@@ -60,6 +62,7 @@ public class DialogueSystem : MonoBehaviour
         }
         else
         {
+            sceneChanger.LoadAScene(nextScene);
             gameObject.SetActive(false);
         }
     }

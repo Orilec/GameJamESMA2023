@@ -32,4 +32,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: e2260e4504820c247924f905487747cf
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene1.unity
+    guid: 26bfa8ca59a9e3140ac40abc291dfb60
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene2.unity
+    guid: 666911cd6513bf041beadbd57613f2a2
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene3.unity
+    guid: 9c833215a59aa3140ab405a1df644283
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene4.unity
+    guid: b8dcd55e866306a4d81721f43379ea63
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene5.unity
+    guid: 9ba1fb0e5994e534597eed392d604d4b
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene6.unity
+    guid: 491fd8416fef2154d913d7787c45f40e
   m_configObjects: {}

@@ -253,9 +253,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 299075890}
   lines:
-  - Bonjour, le dialogue
-  - Ca fonctionne ou quoi ?
+  - Stop reaching for that portal !
+  - Do you enjoy failing?
+  nextScene: Level4
   textSpeed: 0.05
+  sceneChanger: {fileID: 853743546}
 --- !u!114 &117762280
 MonoBehaviour:
   m_ObjectHideFlags: 0
