@@ -7,9 +7,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D myRB;
     private bool _isInRange;
     private Door _doorToDestroy;
-    [SerializeField] private float _speed, _distanceToCheck;
+    [SerializeField] private float _speed, _distanceToCheck, _jumpForce;
     [SerializeField] private List<Collidables> _collidables;
     [SerializeField] private List<MovingPlatform> _movingPlatforms;
+    [SerializeField] private List<ActionBlock> _actionBlocks;
 
 
     void Start()
@@ -17,16 +18,12 @@ public class PlayerController : MonoBehaviour
         myRB = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
-    {
-        Debug.Log(isGrounded());
-    }
 
     public void Jump(PlayerController p)
     {
         if (isGrounded())
         {
-            myRB.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
+            myRB.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
         }
     }
 
@@ -60,6 +57,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void DisableDrag()
+    {
+        foreach (var item in _actionBlocks)
+        {
+            item.DisableDragable();
+        }
+    }
+
 
     public void SetInRange(bool inRange, Door door)
     {
@@ -69,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isGrounded()
     {
-        if (Physics2D.Raycast(transform.position, Vector2.down, _distanceToCheck))
+        if (Physics2D.Raycast(transform.position, Vector2.down, _distanceToCheck, 1 << 6))
         {
             return true;
         }

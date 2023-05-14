@@ -9,7 +9,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBegin
     [SerializeField] private CanvasGroup _canvasGroup;
     [SerializeField] private RectTransform _rectTransform;
     [SerializeField] private Rigidbody2D _rigidBody;
-    private Vector3 _previousPosition; 
+    private Vector3 _previousPosition;
+    private bool _canDrag = true;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -21,7 +22,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBegin
 
     public void OnDrag(PointerEventData eventData)
     {
-        _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
+        if (_canDrag) 
+        {
+            _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -48,5 +52,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBegin
     public void SetPosition(Vector3 position)
     {
         _rectTransform.position = position; 
+    }
+
+    public void DisableDragable()
+    {
+        _canDrag = false;
     }
 }
