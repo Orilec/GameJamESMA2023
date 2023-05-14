@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private List<Collidables> _collidables;
     [SerializeField] private List<MovingPlatform> _movingPlatforms;
     [SerializeField] private List<ActionBlock> _actionBlocks;
+    [SerializeField] private AudioManager _audioM;
 
 
     void Start()
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded())
         {
+            _audioM.source.PlayOneShot(_audioM.jumpSound); 
             myRB.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
             animator.SetBool("IsJumping", true); 
         }
